@@ -1,0 +1,21 @@
+● cc-m03.service - PTI 2802 M03 Flask Application
+     Loaded: loaded (/etc/systemd/system/cc-m03.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2026-10-03 22:08:42 WIB; 1h 5min ago
+   Main PID: 4824 (gunicorn)
+      Tasks: 3 (limit: 2315)
+     Memory: 30.9M (peak: 31.4M)
+        CPU: 1.911s
+     CGroup: /system.slice/cc-m03.service
+             ├─4824 /srv/cc-m03/.venv/bin/python /srv/cc-m03/.venv/bin/gunicorn --workers 1 --threads 2 --bind 127.0.0.1:8000 --timeout 30 --access-logfile - --error-logfile - app:app
+             └─4829 /srv/cc-m03/.venv/bin/python /srv/cc-m03/.venv/bin/gunicorn --workers 1 --threads 2 --bind 127.0.0.1:8000 --timeout 30 --access-logfile - --error-logfile - app:app
+
+Oct 03 22:33:15 cc-m03-25832072003 gunicorn[4829]: 127.0.0.1 - - [03/Oct/2026:22:33:15 +0700] "GET /health HTTP/1.1" 200 91 "-" "curl/8.21.0"
+Oct 03 22:33:32 cc-m03-25832072003 gunicorn[4829]: 127.0.0.1 - - [03/Oct/2026:22:33:32 +0700] "HEAD / HTTP/1.1" 200 0 "-" "curl/8.21.0"
+Oct 03 22:34:24 cc-m03-25832072003 gunicorn[4829]: 127.0.0.1 - - [03/Oct/2026:22:34:24 +0700] "GET / HTTP/1.1" 200 782 "-" "Go-http-client/1.1"
+Oct 03 22:50:29 cc-m03-25832072003 gunicorn[4829]: 127.0.0.1 - - [03/Oct/2026:22:50:29 +0700] "GET /.git/config HTTP/1.1" 404 207 "-" "Mozilla/5.0"
+Oct 03 22:58:34 cc-m03-25832072003 gunicorn[4829]: 127.0.0.1 - - [03/Oct/2026:22:58:34 +0700] "GET / HTTP/1.1" 200 782 "-" "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1"
+Oct 03 22:59:22 cc-m03-25832072003 gunicorn[4829]: 127.0.0.1 - - [03/Oct/2026:22:59:22 +0700] "GET /health HTTP/1.1" 200 91 "-" "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1"
+Oct 03 23:12:10 cc-m03-25832072003 gunicorn[4829]: 127.0.0.1 - - [03/Oct/2026:23:12:10 +0700] "GET /api/info HTTP/1.1" 200 135 "-" "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1"
+Oct 03 23:14:08 cc-m03-25832072003 gunicorn[4829]: 127.0.0.1 - - [03/Oct/2026:23:14:08 +0700] "GET /robots.txt HTTP/1.1" 404 207 "-" "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115"
+Oct 03 23:14:08 cc-m03-25832072003 gunicorn[4829]: 127.0.0.1 - - [03/Oct/2026:23:14:08 +0700] "GET /llms.txt HTTP/1.1" 404 207 "-" "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115"
+Oct 03 23:14:09 cc-m03-25832072003 gunicorn[4829]: 127.0.0.1 - - [03/Oct/2026:23:14:09 +0700] "GET / HTTP/1.1" 200 782 "-" "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115"
