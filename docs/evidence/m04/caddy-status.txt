@@ -1,0 +1,21 @@
+● caddy.service - Caddy
+     Loaded: loaded (/usr/lib/systemd/system/caddy.service; enabled; preset: enabled)
+     Active: active (running) since Thu 2026-10-08 18:20:13 WIB; 2h 1min ago
+       Docs: https://caddyserver.com/docs/
+   Main PID: 709 (caddy)
+      Tasks: 8 (limit: 2315)
+     Memory: 55.0M (peak: 62.0M)
+        CPU: 1.511s
+     CGroup: /system.slice/caddy.service
+             └─709 /usr/bin/caddy run --environ --config /etc/caddy/Caddyfile
+
+Oct 08 18:45:29 cc-m03-25832072003 caddy[709]: {"level":"info","ts":1791459929.1108756,"logger":"http","msg":"served key authentication","identifier":"25832072003.103.59.95.198.sslip.io","challenge":"http-01","remote":"16.171.144.237:36576","distributed":false}
+Oct 08 18:45:29 cc-m03-25832072003 caddy[709]: {"level":"info","ts":1791459929.1610274,"logger":"http","msg":"served key authentication","identifier":"25832072003.103.59.95.198.sslip.io","challenge":"http-01","remote":"3.144.191.101:20568","distributed":false}
+Oct 08 18:45:30 cc-m03-25832072003 caddy[709]: {"level":"info","ts":1791459930.157162,"logger":"http.acme_client","msg":"authorization finalized","identifier":"25832072003.103.59.95.198.sslip.io","authz_status":"valid"}
+Oct 08 18:45:30 cc-m03-25832072003 caddy[709]: {"level":"info","ts":1791459930.1572056,"logger":"http.acme_client","msg":"validations succeeded; finalizing order","order":"https://acme-v02.api.letsencrypt.org/acme/order/3840255276/566884996206"}
+Oct 08 18:45:31 cc-m03-25832072003 caddy[709]: {"level":"info","ts":1791459931.7640743,"logger":"http.acme_client","msg":"got renewal info","names":["25832072003.103.59.95.198.sslip.io"],"window_start":1796563864,"window_end":1796719314,"selected_time":1796615889,"recheck_after":1791485738.764062,"explanation_url":""}
+Oct 08 18:45:32 cc-m03-25832072003 caddy[709]: {"level":"info","ts":1791459932.190021,"logger":"http.acme_client","msg":"got renewal info","names":["25832072003.103.59.95.198.sslip.io"],"window_start":1796563864,"window_end":1796719314,"selected_time":1796615807,"recheck_after":1791483732.1900024,"explanation_url":""}
+Oct 08 18:45:32 cc-m03-25832072003 caddy[709]: {"level":"info","ts":1791459932.6109939,"logger":"http.acme_client","msg":"got renewal info","names":["25832072003.103.59.95.198.sslip.io"],"window_start":1796563864,"window_end":1796719314,"selected_time":1796620806,"recheck_after":1791481577.6109798,"explanation_url":""}
+Oct 08 18:45:32 cc-m03-25832072003 caddy[709]: {"level":"info","ts":1791459932.6112142,"logger":"http.acme_client","msg":"successfully downloaded available certificate chains","count":3,"first_url":"https://acme-v02.api.letsencrypt.org/acme/cert/0525c311aec9fc0657bbc05d1f085b043dbc"}
+Oct 08 18:45:32 cc-m03-25832072003 caddy[709]: {"level":"info","ts":1791459932.7357223,"logger":"tls.obtain","msg":"certificate obtained successfully","identifier":"25832072003.103.59.95.198.sslip.io","issuer":"acme-v02.api.letsencrypt.org-directory"}
+Oct 08 18:45:32 cc-m03-25832072003 caddy[709]: {"level":"info","ts":1791459932.735925,"logger":"tls.obtain","msg":"releasing lock","identifier":"25832072003.103.59.95.198.sslip.io"}
