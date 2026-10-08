@@ -1,0 +1,6 @@
+subject=CN = 25832072003.103.59.95.198.sslip.io
+issuer=C = US, O = Let's Encrypt, CN = YE2
+notBefore=Oct  8 10:47:00 2026 GMT
+notAfter=Jan  6 10:46:59 2027 GMT
+X509v3 Subject Alternative Name: 
+    DNS:25832072003.103.59.95.198.sslip.io

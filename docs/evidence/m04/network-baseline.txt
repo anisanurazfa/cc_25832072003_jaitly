@@ -1,0 +1,23 @@
+=== ADDRESS ===
+lo               UNKNOWN        127.0.0.1/8 
+ens3             UP             10.54.147.3/24 metric 100 
+
+=== ROUTE ===
+default via 10.54.147.1 dev ens3 proto dhcp src 10.54.147.3 metric 100 
+1.1.1.1 via 10.54.147.1 dev ens3 proto dhcp src 10.54.147.3 metric 100 
+10.54.147.0/24 dev ens3 proto kernel scope link src 10.54.147.3 metric 100 
+10.54.147.1 dev ens3 proto dhcp scope link src 10.54.147.3 metric 100 
+
+=== SOCKETS ===
+Netid State  Recv-Q Send-Q    Local Address:Port Peer Address:PortProcess                                                     
+udp   UNCONN 0      0               0.0.0.0:443       0.0.0.0:*    users:(("caddy",pid=709,fd=9))                             
+udp   UNCONN 0      0            127.0.0.54:53        0.0.0.0:*    users:(("systemd-resolve",pid=507,fd=16))                  
+udp   UNCONN 0      0         127.0.0.53%lo:53        0.0.0.0:*    users:(("systemd-resolve",pid=507,fd=14))                  
+udp   UNCONN 0      0      10.54.147.3%ens3:68        0.0.0.0:*    users:(("systemd-network",pid=663,fd=21))                  
+tcp   LISTEN 0      4096            0.0.0.0:22        0.0.0.0:*    users:(("sshd",pid=940,fd=3),("systemd",pid=1,fd=91))      
+tcp   LISTEN 0      4096            0.0.0.0:80        0.0.0.0:*    users:(("caddy",pid=709,fd=10))                            
+tcp   LISTEN 0      4096            0.0.0.0:443       0.0.0.0:*    users:(("caddy",pid=709,fd=3))                             
+tcp   LISTEN 0      2048          127.0.0.1:8000      0.0.0.0:*    users:(("gunicorn",pid=827,fd=3),("gunicorn",pid=710,fd=3))
+tcp   LISTEN 0      4096         127.0.0.54:53        0.0.0.0:*    users:(("systemd-resolve",pid=507,fd=17))                  
+tcp   LISTEN 0      4096          127.0.0.1:2019      0.0.0.0:*    users:(("caddy",pid=709,fd=8))                             
+tcp   LISTEN 0      4096      127.0.0.53%lo:53        0.0.0.0:*    users:(("systemd-resolve",pid=507,fd=15))                  

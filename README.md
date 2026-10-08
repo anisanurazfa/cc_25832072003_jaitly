@@ -1,67 +1,22 @@
-# CC M03 - First VPS Deployment
+# Cloud Computing Assignment — Module 04
 
-Cloud Computing — PTI 2802  
-Pertemuan 3 — Project Inception
+## Production-like Development Endpoint
+- URL: `https://25832072003.103.59.95.198.sslip.io/`
+- Health Endpoint: `https://25832072003.103.59.95.198.sslip.io/health`
 
-## Author
-Nama: Anisa Nur Azfa  
-NIM: 25832072003  
-Kelas: 2A  
+## Network Architecture
+Public entry points:
+- TCP/80 → Caddy HTTP redirect / ACME challenge
+- TCP/443 → Caddy HTTPS
 
-## Problem
-Membutuhkan infrastruktur deployment Flask yang stabil, aman, dan efisien pada VPS beresource terbatas.
+Internal application:
+- `127.0.0.1:8000` → Gunicorn (Flask App)
 
-## Target Users
-Pengguna umum dan sistem eksternal yang mengakses REST API / Web.
+## DNS
+`25832072003.103.59.95.198.sslip.io` resolves via A Record to `103.59.95.198`.
 
-## Features M03
-- baseline application
-- health endpoint
-- VPS deployment
-
-## Architecture
-
-```mermaid
-flowchart LR
-    U[User] --> C[Caddy]
-    C --> G[Gunicorn]
-    G --> F[Flask]
-Infrastructure
-Ubuntu Server 24.04
-
-1 vCPU
-
-1 GB RAM
-
-20 GB disk
-
-Caddy
-
-Gunicorn
-
-Public Endpoint
-http://103.59.95.198/
-
-Health Check
-GET /health
-
-Deployment
-See docs/deployment.md.
-
-Security
-key-only SSH
-
-root SSH disabled
-
-UFW enabled
-
-backend loopback-only
-
-Current Limitations
-HTTP only
-
-no persistent database
-
-no container
-
-manual deployment
+## Security Baseline
+- SSH Key authentication
+- Active UFW (Ports 22, 80, 443)
+- Loopback-only Flask/Gunicorn backend
+- Caddy Automatic HTTPS

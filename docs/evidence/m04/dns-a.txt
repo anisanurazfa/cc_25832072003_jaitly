@@ -1,0 +1,20 @@
+
+; <<>> DiG 9.18.39-0ubuntu0.24.04.7-Ubuntu <<>> 25832072003.103.59.95.198.sslip.io A
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 48820
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;25832072003.103.59.95.198.sslip.io. IN	A
+
+;; ANSWER SECTION:
+25832072003.103.59.95.198.sslip.io. 3599 IN A	103.59.95.198
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Thu Oct 08 19:24:08 WIB 2026
+;; MSG SIZE  rcvd: 79
+

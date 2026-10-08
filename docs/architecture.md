@@ -1,50 +1,54 @@
-# Architecture v0.1
+# Network & Deployment Architecture v0.2
 
-## Deployment View
+## Deployment View v0.2
 ```mermaid
 flowchart TB
-    I[Internet]
-    F[UFW]
-    C[Caddy :80]
+    U[User Device]
+    DNS[DNS Resolver]
+    AUTH[Authoritative DNS]
+    FW1[Provider Firewall]
+    UFW[UFW]
+    C[Caddy :80/:443]
     G[Gunicorn 127.0.0.1:8000]
     A[Flask]
-    I --> F --> C --> G --> A
-Resource Constraints
-1 vCPU
 
-1 GB RAM
+    U -->|DNS query| DNS
+    DNS --> AUTH
+    U -->|HTTPS :443| FW1
+    FW1 --> UFW
+    UFW --> C
+    C -->|HTTP loopback| G
+    G --> A
+Public DNS
+25832072003.103.59.95.198.sslip.io A 103.59.95.198
 
-20 GB disk
+Public Ports
+22/tcp — SSH administration
 
-Security Decisions
-non-root administration
+80/tcp — HTTP redirect / ACME challenge
 
-SSH key authentication
+443/tcp — HTTPS
 
-password SSH disabled
+Private Host Port
+127.0.0.1:8000 — Gunicorn
 
-UFW enabled
+TLS
+Managed automatically by Caddy through Let's Encrypt / ACME CA.
 
-backend loopback-only
-
-Current Limitations
-HTTP only
-
-single VPS
-
-no database
-
-no container
-
-no CI/CD
-
-Planned Evolution
-M04 DNS + HTTPS
-
-M05 persistent data
-
-M06 container
-
-M07 IaC
-
-M09 CI/CD
+Data Flow
+Browser
+  │
+  │ DNS Query
+  ▼
+25832072003.103.59.95.198.sslip.io → 103.59.95.198
+  │
+  │ TCP/443 + TLS
+  ▼
+Caddy (Reverse Proxy)
+  │
+  │ local HTTP (127.0.0.1:8000)
+  ▼
+Gunicorn
+  │
+  ▼
+Flask Application
